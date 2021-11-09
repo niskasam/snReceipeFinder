@@ -14,6 +14,18 @@ export default function App() {
   .catch(error => { Alert.alert('Error', error); }); 
   }
 
+  const listSeparator = () => {
+    return (
+      <View
+      style={{
+          height: 2,
+          width: "95%",
+          backgroundColor: "#9B969C",
+      }}
+      />
+    );
+  };
+
   return (
     <View style={styles.container}>
 
@@ -32,6 +44,7 @@ export default function App() {
      <View style={styles.listContainer}>
      <FlatList
      style={styles.list}
+     ItemSeparatorComponent={listSeparator}
      keyExtractor={(item,  index) => index.toString()}
      data={meals}
      renderItem={({item}) =>
